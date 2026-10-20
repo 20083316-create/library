@@ -20,4 +20,22 @@ public class NotesController : Controller
         var notes = await _notes.GetAllAsync();
         return View(notes); // Views/Notes/Index.cshtml
     }
+    // GET /Notes/Create : an empty form.
+    public IActionResult Create()
+    {
+        return View(new Note());
+    }
+
+    // POST /Notes/Create : the form was submitted.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create(Note note)
+    {
+        if (!ModelState.IsValid) // the title was empty or too long
+        {
+            return View(note);
+        }
+        await _notes.AddAsync(note);
+        return RedirectToAction(nameof(Index));
+    }
 }

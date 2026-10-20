@@ -42,4 +42,14 @@ public class NoteRepository
         }
         return notes;
     }
+    // CREATE: insert a new note. The database chooses note_id and created_on.
+    public async Task AddAsync(Note note)
+    {
+        const string sql = "INSERT INTO lending.note (title, body) VALUES (@title, @body);";
+        await using var command = _dataSource.CreateCommand(sql);
+        command.Parameters.AddWithValue("title", note.Title);
+        // A C# null must be sent as DBNull.Value, which is how a database NULL is written.
+        command.Parameters.AddWithValue("body", (object?)note.Body ?? DBNull.Value);
+        await command.ExecuteNonQueryAsync(); // runs SQL that returns no rows
+    }
 }
