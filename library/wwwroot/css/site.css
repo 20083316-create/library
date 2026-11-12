@@ -182,3 +182,304 @@ h1, h2, h3 {
         --bs-btn-hover-border-color: #fff;
         --bs-btn-hover-color: var(--lib-ink);
     }
+
+/* ===== Activity 2: loans, borrow form, member loans, messages ===== */
+:root {
+    --a2-ink: #1f2a44;
+    --a2-amber: #e9a23b;
+    --a2-out: #e9a23b;
+    --a2-overdue: #c0392b;
+    --a2-returned: #5b7c6f;
+}
+
+.page-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+    .page-head h1 {
+        margin: 0;
+        color: var(--a2-ink);
+        font-weight: 700;
+    }
+
+.page-sub {
+    margin: 0;
+    color: #6b7280;
+}
+
+/* Loans: summary tiles */
+.loan-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border-top: 4px solid var(--a2-ink);
+    border-radius: .75rem;
+    box-shadow: 0 2px 10px rgba(31, 42, 68, .08);
+}
+
+.tile-num {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--a2-ink);
+}
+
+.tile-label {
+    margin-top: .35rem;
+    font-size: .75rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #6b7280;
+}
+
+.tile-out {
+    border-top-color: var(--a2-out);
+}
+
+.tile-overdue {
+    border-top-color: var(--a2-overdue);
+}
+
+.tile-returned {
+    border-top-color: var(--a2-returned);
+}
+
+/* Loans: one card per loan */
+.loan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+    gap: 1rem;
+}
+
+.loan-card {
+    padding: 1rem 1.1rem;
+    background: #fff;
+    border-left: 6px solid var(--a2-ink);
+    border-radius: .75rem;
+    box-shadow: 0 2px 10px rgba(31, 42, 68, .08);
+}
+
+.loan-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: .75rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.loan-status {
+    font-weight: 700;
+}
+
+.loan-due {
+    color: #6b7280;
+}
+
+.loan-book {
+    margin: .5rem 0 .25rem;
+    font-size: 1.05rem;
+    color: var(--a2-ink);
+}
+
+.loan-member {
+    margin: 0;
+}
+
+.loan-dates {
+    margin: 0 0 .75rem;
+    font-size: .85rem;
+    color: #6b7280;
+}
+
+.loan-out {
+    border-left-color: var(--a2-out);
+}
+
+    .loan-out .loan-status {
+        color: #a86a0b;
+    }
+
+.loan-overdue {
+    border-left-color: var(--a2-overdue);
+    background: #fff5f4;
+}
+
+    .loan-overdue .loan-status {
+        color: var(--a2-overdue);
+    }
+
+.loan-returned {
+    border-left-color: var(--a2-returned);
+}
+
+    .loan-returned .loan-status {
+        color: var(--a2-returned);
+    }
+
+.btn-return {
+    color: var(--a2-returned);
+    background: transparent;
+    border: 1px solid var(--a2-returned);
+}
+
+    .btn-return:hover {
+        color: #fff;
+        background: var(--a2-returned);
+    }
+
+/* Borrow form */
+.borrow-card {
+    max-width: 38rem;
+    overflow: hidden;
+    background: #fff;
+    border-radius: .9rem;
+    box-shadow: 0 4px 18px rgba(31, 42, 68, .12);
+}
+
+.borrow-head {
+    padding: 1rem 1.5rem;
+    color: #fff;
+    background: var(--a2-ink);
+}
+
+    .borrow-head h1 {
+        margin: 0;
+        font-size: 1.35rem;
+        color: #fff;
+    }
+
+    .borrow-head p {
+        margin: .25rem 0 0;
+        font-size: .9rem;
+        opacity: .85;
+    }
+
+.borrow-body {
+    padding: 1.5rem;
+}
+
+.step-label {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .35rem;
+    font-weight: 600;
+    color: var(--a2-ink);
+}
+
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    font-size: .85rem;
+    font-weight: 700;
+    color: var(--a2-ink);
+    background: var(--a2-amber);
+    border-radius: 50%;
+}
+
+/* A member's loans page */
+.member-card {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border-left: 6px solid var(--a2-amber);
+    border-radius: .9rem;
+    box-shadow: 0 4px 18px rgba(31, 42, 68, .1);
+}
+
+    .member-card h1 {
+        margin: 0;
+        color: var(--a2-ink);
+    }
+
+.member-meta {
+    margin: .25rem 0 0;
+    color: #6b7280;
+}
+
+.status-pill {
+    display: inline-block;
+    padding: .15rem .6rem;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    border-radius: 999px;
+}
+
+.pill-out {
+    color: #8a5a0a;
+    background: #fdecc8;
+}
+
+.pill-overdue {
+    color: #a93226;
+    background: #fadbd8;
+}
+
+.pill-returned {
+    color: #3f6252;
+    background: #dfeae4;
+}
+
+/* Messages */
+.notice {
+    margin-bottom: 1rem;
+    padding: .75rem 1rem;
+    border-left: 5px solid;
+    border-radius: .6rem;
+}
+
+.notice-error {
+    color: #7b241c;
+    background: #fdf0ee;
+    border-left-color: var(--a2-overdue);
+}
+
+.notice-info {
+    color: var(--a2-ink);
+    background: #eef3fb;
+    border-left-color: var(--a2-ink);
+}
+
+.field-validation-error {
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+    .field-validation-error::before {
+        content: "\26A0\00a0";
+    }
+
+.input-validation-error {
+    background: #fff8f7;
+    border-color: var(--a2-overdue) !important;
+}
+
+.validation-summary-errors {
+    padding: .6rem 1rem;
+    color: #7b241c;
+    background: #fdf0ee;
+    border-left: 5px solid var(--a2-overdue);
+    border-radius: .6rem;
+}
+
+    .validation-summary-errors ul {
+        margin: 0;
+        padding-left: 1.1rem;
+    }
